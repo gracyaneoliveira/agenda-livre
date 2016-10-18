@@ -1,24 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="container col-lg-8 col-lg-offset-2">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @contact.name %>
-</p>
+   <div class="panel panel-primary">
+     
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= Contact.model_name.human %></h3>
+      </div>
+     
+     <div class="panel-body">
+        <p>
+          <strong><%= Contact.human_attribute_name("name") %>:</strong>
+          <%= @contact.name %>
+        </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @contact.email %>
-</p>
+        <p>
+          <strong>Email:</strong>
+          <%= @contact.email %>
+        </p>
 
-<p>
-  <strong>Kind:</strong>
-  <%= @contact.kind %>
-</p>
+        <p>
+          <strong><%=  Contact.human_attribute_name("kind") %>:</strong>
+          <%= @contact.kind.description %>
+        </p>
 
-<p>
-  <strong>Rmk:</strong>
-  <%= @contact.rmk %>
-</p>
+        <p>
+          <strong><%= Contact.human_attribute_name("rmk") %>:</strong>
+          <%= @contact.rmk %>
+        </p>
 
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+        <p>
+          <strong><%= Phone.model_name.human %>:</strong>
+          <ul>
+            <% @contact.phones.each do |phone| %>
+              <li><%= phone.phone %></li>
+            <%end%>
+          </ul>
+        </p>
+    </div>
+  </div>
+  <%= link_to 'Edit', edit_contact_path(@contact), class: "btn btn-warning", style: "color:white"  %>
+  <%= link_to 'Back', contacts_path , class: "btn btn-info" ,style: "color:white" %>
+
+</div>

@@ -1,0 +1,9 @@
+$('#contactModal #contact-name').text('<%= @contact.name %>');
+$('#contactModal #contact-email').text('<%= @contact.email %>');
+$('#contactModal #contact-kind').text('<%= @contact.kind.description %>');
+$('#contactModal #contact-rmk').text('<%= @contact.rmk %>');
+$('#contactModal #contact-address')
+  .text('<%= @contact.address.street %> , <%= @contact.address.city %> - <%= @contact.address.state %>');
+// $('#contactModal #contact-phones').html('<ul><% @contact.phones.each do |phone| %><li><%=phone.phone%></li><%end%></ul>');
+$('#contactModal #contact-phones').html("<%= escape_javascript(render 'listphone') %>");
+$('#contactModal').modal('show');

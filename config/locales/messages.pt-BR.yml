@@ -5,4 +5,5 @@
       errors: Campos obrigatórios não foram preenchidos
       created: Item criado com sucesso!
       updated: Item atualizado com sucesso!
-      destroyed: Item atualizado com sucesso! 
+      destroyed: Item atualizado com sucesso!
+      new: Novo

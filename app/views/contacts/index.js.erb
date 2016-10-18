@@ -1,0 +1,13 @@
+$(function(){
+//   $('.contact-detail').on('click', function (event) {
+//      event.preventDefault();
+$('.contact-detail').bind('ajax:success', function() {
+     var contact = $(this).data('contact');
+        
+     $('#contactModal #contact-name').text(contact.name);
+     $('#contactModal #contact-email').text(contact.email);
+     $('#contactModal #contact-kind').text(contact.kind_id);
+  
+     $('#contactModal').modal('show');
+  });
+});

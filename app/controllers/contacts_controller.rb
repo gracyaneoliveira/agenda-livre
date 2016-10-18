@@ -6,13 +6,20 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.order(:name).page(params[:page]).per(20)
-   # @contacts = Contact.all.page(params[:page]).per(20)
+     respond_to do |format|
+        format.html { @contacts = Contact.order(:name).page(params[:page]).per(20) }
+        # @contacts = Contact.all.page(params[:page]).per(20)
+        format.js
+     end
   end
 
   # GET /contacts/1
   # GET /contacts/1.json
   def show
+    respond_to do |format|
+        format.html
+        format.js
+    end
   end
 
   # GET /contacts/new
